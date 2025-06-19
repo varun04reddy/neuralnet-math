@@ -68,4 +68,28 @@ class MathLSTM(nn.Module):
 
         output = self.fc(h)
         return output.squeeze(1)
+    
+    def get_weights(self):
+
+        return {
+            "W_i_weight": self.lstm_cell.W_input.weight.data,
+            "W_i_bias": self.lstm_cell.W_input.bias.data,
+            "U_i_weight": self.lstm_cell.U_input.weight.data,
+            "U_i_bias": self.lstm_cell.U_input.bias.data,
+
+            "W_f_weight": self.lstm_cell.W_forget.weight.data,
+            "W_f_bias": self.lstm_cell.W_forget.bias.data,
+            "U_f_weight": self.lstm_cell.U_forget.weight.data,
+            "U_f_bias": self.lstm_cell.U_forget.bias.data,
+
+            "W_o_weight": self.lstm_cell.W_output.weight.data,
+            "W_o_bias": self.lstm_cell.W_output.bias.data,
+            "U_o_weight": self.lstm_cell.U_output.weight.data,
+            "U_o_bias": self.lstm_cell.U_output.bias.data,
+
+            "W_c_weight": self.lstm_cell.W_cell.weight.data,
+            "W_c_bias": self.lstm_cell.W_cell.bias.data,
+            "U_c_weight": self.lstm_cell.U_cell.weight.data,
+            "U_c_bias": self.lstm_cell.U_cell.bias.data,
+        }
 
